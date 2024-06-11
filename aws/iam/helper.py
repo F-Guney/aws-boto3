@@ -8,3 +8,10 @@ def get_iam_users():
 
     users = [IamUser.of(user) for user in raw_users["Users"]]
     return users
+
+
+def get_iam_user(name: str):
+    client = Boto3.client("iam")
+    raw_user = client.get_user(UserName=name)
+
+    return IamUser.of(raw_user["User"])
