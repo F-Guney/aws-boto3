@@ -6,7 +6,7 @@ def get_iam_users():
     client = Boto3.client("iam")
     raw_users = client.list_users()
 
-    users = [IamUser.of(user) for user in raw_users["Users"]]
+    users = list(map(IamUser.of, raw_users["Users"]))
     return users
 
 
