@@ -7,6 +7,7 @@ from aws.ec2.route import blueprint as ec2_blueprint
 from aws.ec2.power.route import blueprint as ec2_power_blueprint
 from aws.s3.route import blueprint as s3_blueprint
 from aws.s3.bucket.route import blueprint as s3_bucket_blueprint
+from aws.iam.route import blueprint as iam_blueprint
 
 
 def create_app() -> Flask:
@@ -27,6 +28,7 @@ def register_blueprints(app: Flask):
     api.register_blueprint(ec2_power_blueprint)
     api.register_blueprint(s3_blueprint)
     api.register_blueprint(s3_bucket_blueprint)
+    api.register_blueprint(iam_blueprint)
 
 
 app = create_app()

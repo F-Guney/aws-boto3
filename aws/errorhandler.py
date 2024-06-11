@@ -14,11 +14,11 @@ def error_template(func):
     return wrapper
 
 
-@blueprint.app_errorhandler(Exception)
-@error_template
-def handle_exception(error):
-    logger.error(error)
-    return {"message": "Unexpected error occured."}, 500
+# @blueprint.app_errorhandler(Exception)
+# @error_template
+# def handle_exception(error):
+#     logger.error(error)
+#     return {"message": "Unexpected error occured."}, 500
 
 
 @blueprint.app_errorhandler(NotFound)
